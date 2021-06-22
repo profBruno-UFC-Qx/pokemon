@@ -1,19 +1,18 @@
+import java.util.List;
 import java.util.Random;
 
 public class Batalha {
 
     private boolean emBatalha;
-    private Random random;
-    private int tentativas;
-    private String pokemon ;
+    private Pokemon pokemon ;
+    private List<Pokebola> inventario;
 
-    public Batalha() {
-        random = new Random();
+    public Batalha(List<Pokebola> inventario) {
+        this.inventario = inventario;
     }
 
     public void iniciar() {
         emBatalha = true;
-        tentativas = 3;
         pokemon = BancoDePokemon.getRandomPokemon();
         System.out.println("Apareceu um "
                 + pokemon
@@ -35,11 +34,18 @@ public class Batalha {
                 }
                 break;
             case "P":
-                if (capturar()) {
-                    System.out.println("Vc capturou um " + getPokemon());
-                    return true;
+                if (inventario.isEmpty()) {
+                    System.out.println("Voce nao tem mais pokebolas");
                 } else {
-                    System.out.println("O " + getPokemon() + " quebrou sua pokebola");
+                    Pokebola pokebola = inventario.remove(0);
+                    System.out.print("Voce usou uma " + pokebola + " e ");
+                    if (pokebola.capturar(pokemon)) {
+                        System.out.println("capturou um " + getPokemon());
+                        emBatalha = false;
+                        return true;
+                    } else {
+                        System.out.println("o " + getPokemon() + " quebrou sua " + pokebola);
+                    }
                 }
                 break;
             default:
@@ -59,30 +65,12 @@ public class Batalha {
         return dado1 != 6;
     }
 
-    public String getPokemon() {
+    public Pokemon getPokemon() {
         return pokemon;
-    }
-
-    public boolean capturar(){
-        int treinadorDado = random.nextInt(6) + 1;
-        int pokemonDado = random.nextInt(6) + 1;
-        tentativas--;
-        if (treinadorDado > pokemonDado) {
-            emBatalha = false;
-            return true;
-        } else {
-            if (tentativas == 0) {
-                System.out.println("O " + pokemon + "escapou");
-                emBatalha = false;
-                pokemon = null;
-            }
-            return false;
-        }
     }
 
     public boolean correr() {
         emBatalha = false;
-        pokemon = null;
         return true;
     }
 

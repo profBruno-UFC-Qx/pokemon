@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -6,12 +8,13 @@ public class Main {
     private static final int MAX_X = 20;
     private static final int MAX_Y = 5;
 
-    private static final int MODO_MAPA = 0;
-    private static final int MODO_BATALHA = 1;
+    enum Modo {
+        MODO_MAPA, MODO_BATALHA;
+    }
 
     public static void main(String[] args) {
 
-        int modo =  MODO_MAPA;
+        Modo modo =  Modo.MODO_MAPA;
 
         Scanner scanner = new Scanner(System.in);
         String opcao = "";
@@ -19,6 +22,8 @@ public class Main {
         Mapa mapa = new Mapa(MAX_X, MAX_Y);
         Batalha batalha = null;
         boolean skip = false;
+
+        List<Pokebola> pokebolas = Main.criarInventario();
 
 
         System.out.println("Bem vindo ao jogo Pokemon");
@@ -39,7 +44,7 @@ public class Main {
                     case MODO_MAPA:
                         if (mundo.move(opcao) && Batalha.achouPokemon()) {
                             mapa.imprimir(mundo.getX(), mundo.getY());
-                            modo = MODO_BATALHA;
+                            modo = Modo.MODO_BATALHA;
                             skip = true;
                         } else {
                             System.out.println("Opcao invalida");
@@ -48,12 +53,12 @@ public class Main {
 
                     case MODO_BATALHA:
                         if (batalha == null) {
-                            batalha = new Batalha();
+                            batalha = new Batalha(pokebolas);
                             batalha.iniciar();
                         } else {
                             if (batalha.tratarOpcao(opcao)) {
                                 if (!batalha.estaEmBatalha()) {
-                                    modo = MODO_MAPA;
+                                    modo = Modo.MODO_MAPA;
                                     mapa.imprimir(mundo.getX(), mundo.getY());
                                     batalha = null;
                                 }
@@ -65,5 +70,20 @@ public class Main {
                 }
             }
         } while(!"sair".equalsIgnoreCase(opcao));
+    }
+
+    private static List<Pokebola> criarInventario() {
+        List<Pokebola> pokebolas = new ArrayList<Pokebola>();
+        pokebolas.add(new Pokebola());
+        pokebolas.add(new Pokebola());
+        pokebolas.add(new Pokebola());
+        pokebolas.add(new GreatPokebola());
+        pokebolas.add(new GreatPokebola());
+        pokebolas.add(new GreatPokebola());
+        pokebolas.add(new UltraPokebola());
+        pokebolas.add(new UltraPokebola());
+        pokebolas.add(new UltraPokebola());
+        pokebolas.add(new MasterPokebola());
+        return pokebolas;
     }
 }

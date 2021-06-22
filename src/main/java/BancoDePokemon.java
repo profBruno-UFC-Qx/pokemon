@@ -154,8 +154,8 @@ public class BancoDePokemon {
             "Mewtwo",
             "Mew"};
 
-    public static String getRandomPokemon() {
+    public static Pokemon getRandomPokemon() {
         Random random = new Random();
-        return POKEMONS[random.nextInt(151)];
+        return new Pokemon(POKEMONS[random.nextInt(151)]);
     }
 }
