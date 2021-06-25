@@ -1,3 +1,5 @@
+package game;
+
 public class Mapa {
 
     private final int largura;

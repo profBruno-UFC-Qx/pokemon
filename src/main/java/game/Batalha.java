@@ -1,3 +1,7 @@
+package game;
+
+import game.pokebola.Pokebola;
+
 import java.util.List;
 import java.util.Random;
 
@@ -15,7 +19,7 @@ public class Batalha {
         emBatalha = true;
         pokemon = BancoDePokemon.getRandomPokemon();
         System.out.println("Apareceu um "
-                + pokemon
+                + pokemon.toString()
                 + " selvagem!");
         mostarOpcoes();
     }
@@ -44,7 +48,7 @@ public class Batalha {
                         emBatalha = false;
                         return true;
                     } else {
-                        System.out.println("o " + getPokemon() + " quebrou sua " + pokebola);
+                        System.out.println("o " + getPokemon().getNome() + " quebrou sua " + pokebola);
                     }
                 }
                 break;

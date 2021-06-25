@@ -1,3 +1,7 @@
+package game.pokebola;
+
+import game.Pokemon;
+
 public class MasterPokebola extends Pokebola{
 
     @Override
@@ -7,6 +11,6 @@ public class MasterPokebola extends Pokebola{
 
     @Override
     public String toString() {
-        return "MasterPokebola";
+        return "game.pokebola.MasterPokebola";
     }
 }

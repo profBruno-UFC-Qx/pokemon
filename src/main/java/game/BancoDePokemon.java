@@ -1,3 +1,5 @@
+package game;
+
 import java.util.Random;
 
 public class BancoDePokemon {
@@ -156,6 +158,10 @@ public class BancoDePokemon {
 
     public static Pokemon getRandomPokemon() {
         Random random = new Random();
-        return new Pokemon(POKEMONS[random.nextInt(151)]);
+        return new Pokemon(
+                POKEMONS[random.nextInt(151)],
+                random.nextInt(50) + 80,
+                random.nextInt(400) + 1 + random.nextFloat(),
+                random.nextFloat()*100);
     }
 }

@@ -1,7 +1,7 @@
 ### Funcionalidades
 
 - [x] Andar no mapa
-- [x] Batalha com captura
-- [] Inventário de pokebolas
-- [] Tipos de pokebolas
+- [x] game.Batalha com captura
+- [x] Inventário de pokebolas
+- [x] Tipos de pokebolas
 - [] Pokedex

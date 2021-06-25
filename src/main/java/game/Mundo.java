@@ -1,3 +1,5 @@
+package game;
+
 public class Mundo {
 
     private final int maxX;

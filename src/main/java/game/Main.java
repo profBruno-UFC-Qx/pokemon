@@ -1,3 +1,7 @@
+package game;
+
+import game.pokebola.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +30,7 @@ public class Main {
         List<Pokebola> pokebolas = Main.criarInventario();
 
 
-        System.out.println("Bem vindo ao jogo Pokemon");
+        System.out.println("Bem vindo ao jogo game.Pokemon");
         mapa.imprimir(mundo.getX(), mundo.getY());
 
         do {
@@ -75,13 +79,14 @@ public class Main {
     private static List<Pokebola> criarInventario() {
         List<Pokebola> pokebolas = new ArrayList<Pokebola>();
         pokebolas.add(new Pokebola());
-        pokebolas.add(new Pokebola());
-        pokebolas.add(new Pokebola());
+        pokebolas.add(new AmizadePokebola());
+        pokebolas.add(new AmizadePokebola());
+        pokebolas.add(new FastPokebola());
+        pokebolas.add(new FastPokebola());
+        pokebolas.add(new HeavyPokebola());
+        pokebolas.add(new HeavyPokebola());
+        pokebolas.add(new CuraPokebola());
         pokebolas.add(new GreatPokebola());
-        pokebolas.add(new GreatPokebola());
-        pokebolas.add(new GreatPokebola());
-        pokebolas.add(new UltraPokebola());
-        pokebolas.add(new UltraPokebola());
         pokebolas.add(new UltraPokebola());
         pokebolas.add(new MasterPokebola());
         return pokebolas;
