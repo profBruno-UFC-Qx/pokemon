@@ -2,7 +2,7 @@ package game.pokebola;
 
 import game.Pokemon;
 
-public abstract class AlteraEstadoPokebola extends Pokebola {
+public abstract class PokebolaAfetaPokemon extends Pokebola {
 
     protected abstract void aplicarEfeito(Pokemon pokemon);
 

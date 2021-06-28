@@ -160,8 +160,8 @@ public class BancoDePokemon {
         Random random = new Random();
         return new Pokemon(
                 POKEMONS[random.nextInt(151)],
-                random.nextInt(50) + 80,
-                random.nextInt(400) + 1 + random.nextFloat(),
-                random.nextFloat()*100);
+                random.nextInt(100) + 1,
+                random.nextInt(400) + 1,
+                random.nextInt(378) + 1);
     }
 }

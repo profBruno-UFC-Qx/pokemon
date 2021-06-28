@@ -1,16 +1,15 @@
 package game.pokebola;
 
 import game.Pokemon;
-
-public class CuraPokebola extends AlteraEstadoPokebola{
+public class HealPokebola extends PokebolaAfetaPokemon {
 
     @Override
     protected void aplicarEfeito(Pokemon pokemon) {
-        System.out.println(pokemon.getNome() + " foi curado");
+        pokemon.setPvAtual(pokemon.getPvMax());
     }
 
     @Override
     public String toString() {
-        return "game.pokebola.CuraPokebola";
+        return "HealPokebola";
     }
 }

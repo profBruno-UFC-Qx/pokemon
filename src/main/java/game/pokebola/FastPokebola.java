@@ -2,19 +2,18 @@ package game.pokebola;
 
 import game.Pokemon;
 
-public class FastPokebola extends AlteraTaxaPokebola {
+public class FastPokebola extends PokebolaAfetaTaxa {
 
     @Override
-    protected float getTaxaModificada(Pokemon pokemon) {
-        int taxaDaEspecie = pokemon.getTaxaDeCaptura();
+    protected int getTaxaModificada(Pokemon pokemon) {
         if(pokemon.getVelocidade() > 100) {
-            return 4*taxaDaEspecie;
+            return pokemon.getTaxaDeCaptura() * 4;
         }
-        return taxaDaEspecie;
+        return pokemon.getTaxaDeCaptura();
     }
 
     @Override
     public String toString() {
-        return "game.pokebola.FastPokebola";
+        return "FastPokebola";
     }
 }

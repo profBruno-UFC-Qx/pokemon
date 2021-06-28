@@ -7,12 +7,13 @@ public class Pokemon {
     private String nome;
     private String apelido;
     private int nivel;
-    private Sexo sexo = Sexo.FEMININO;
+    private Sexo sexo;
+    private int pvMax = 100;
+    private int pvAtual = 30;
     private int velocidade;
-    private float peso;
-    private float altura;
-    private int hpAtual = 70;
-    private int hpMax = 100;
+    private int altura;
+    private int peso;
+    private int nivelDeAmizade;
     private int taxaDeCaptura = 100;
 
     enum Sexo {
@@ -30,22 +31,31 @@ public class Pokemon {
         }
     }
 
-    public Pokemon(String nome, int velocidade, float peso, float altura) {
+    public Pokemon(String nome, int altura, int peso, int velocidade) {
         this.nome = nome;
         this.nivel = 1;
-        this.velocidade = velocidade;
-        this.peso = peso;
         this.altura = altura;
+        this.peso = peso;
+        this.velocidade = velocidade;
         Random random = new Random();
-        sexo = Sexo.values()[random.nextInt(2)] ;
+        sexo = Sexo.values()[random.nextInt(Sexo.values().length)];
+
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Sexo getSexo() {
-        return sexo;
+    public int getPvMax() {
+        return pvMax;
+    }
+
+    public void setPvAtual(int pvAtual) {
+        this.pvAtual = pvAtual;
+    }
+
+    public int getPvAtual() {
+        return pvAtual;
     }
 
     public int getVelocidade() {
@@ -56,28 +66,25 @@ public class Pokemon {
         return peso;
     }
 
-    public float getAltura() {
-        return altura;
-    }
-
-    public int getHpAtual() {
-        return hpAtual;
-    }
-
-    public int getHpMax() {
-        return hpMax;
-    }
-
     public int getTaxaDeCaptura() {
         return taxaDeCaptura;
     }
 
+    public int getNivelDeAmizade() {
+        return nivelDeAmizade;
+    }
+
+    public void setNivelDeAmizade(int nivelDeAmizade) {
+        this.nivelDeAmizade = nivelDeAmizade;
+    }
+
     @Override
     public String toString() {
-        return nome +" [nivel=" + nivel +
-                ", velocidade=" + velocidade +
-                ", peso=" + String.format("%.2f",peso) +
-                ", altura=" + String.format("%.2f",altura) +
-                ']' + "(" + sexo + ")";
+        return nome +"{" +
+                "pv=" + pvAtual +
+                ", vel=" + velocidade +
+                ", peso=" + peso +
+                ", amizade=" + nivelDeAmizade +
+                "}["+ nivel +"](" + sexo + ")";
     }
 }

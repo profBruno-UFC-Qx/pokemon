@@ -11,6 +11,6 @@ public class MasterPokebola extends Pokebola{
 
     @Override
     public String toString() {
-        return "game.pokebola.MasterPokebola";
+        return "MasterPokebola";
     }
 }

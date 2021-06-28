@@ -79,13 +79,13 @@ public class Main {
     private static List<Pokebola> criarInventario() {
         List<Pokebola> pokebolas = new ArrayList<Pokebola>();
         pokebolas.add(new Pokebola());
-        pokebolas.add(new AmizadePokebola());
-        pokebolas.add(new AmizadePokebola());
+        pokebolas.add(new FriendPokebola());
+        pokebolas.add(new FriendPokebola());
         pokebolas.add(new FastPokebola());
         pokebolas.add(new FastPokebola());
         pokebolas.add(new HeavyPokebola());
         pokebolas.add(new HeavyPokebola());
-        pokebolas.add(new CuraPokebola());
+        pokebolas.add(new HealPokebola());
         pokebolas.add(new GreatPokebola());
         pokebolas.add(new UltraPokebola());
         pokebolas.add(new MasterPokebola());

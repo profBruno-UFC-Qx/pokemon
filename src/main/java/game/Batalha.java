@@ -19,7 +19,7 @@ public class Batalha {
         emBatalha = true;
         pokemon = BancoDePokemon.getRandomPokemon();
         System.out.println("Apareceu um "
-                + pokemon.toString()
+                + pokemon
                 + " selvagem!");
         mostarOpcoes();
     }
@@ -48,7 +48,7 @@ public class Batalha {
                         emBatalha = false;
                         return true;
                     } else {
-                        System.out.println("o " + getPokemon().getNome() + " quebrou sua " + pokebola);
+                        System.out.println("ele quebrou sua " + pokebola);
                     }
                 }
                 break;

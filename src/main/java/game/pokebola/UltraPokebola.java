@@ -2,10 +2,10 @@ package game.pokebola;
 
 import game.Pokemon;
 
-public class UltraPokebola extends AlteraTaxaPokebola {
+public class UltraPokebola extends PokebolaAfetaTaxa {
 
     @Override
-    protected float getTaxaModificada(Pokemon pokemon) {
+    protected int getTaxaModificada(Pokemon pokemon) {
         return 2*pokemon.getTaxaDeCaptura();
     }
 
