@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class BancoDePokemon {
 
-    private static final String[] POKEMONS = {"Bulbasaur",
+    public static final String[] POKEMONS = {"Bulbasaur",
             "Ivysaur",
             "Venusaur",
             "Charmander",
