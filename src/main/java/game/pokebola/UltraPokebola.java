@@ -10,7 +10,13 @@ public class UltraPokebola extends PokebolaAfetaTaxa {
     }
 
     @Override
-    public String toString() {
+    public String getNome() {
         return "UltraPokebola";
     }
+
+    @Override
+    public String getDescricao() {
+        return "Possui uma taxa de captura maior que da GreatPokebola.";
+    }
+
 }

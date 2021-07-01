@@ -13,7 +13,12 @@ public class FastPokebola extends PokebolaAfetaTaxa {
     }
 
     @Override
-    public String toString() {
+    public String getNome() {
         return "FastPokebola";
+    }
+
+    @Override
+    public String getDescricao() {
+        return "Facilita a captura de pokemons velozes";
     }
 }

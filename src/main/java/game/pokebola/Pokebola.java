@@ -1,11 +1,12 @@
 package game.pokebola;
 
 import game.Pokemon;
+import game.model.Item;
 
 import java.util.Random;
 
 
-public class Pokebola {
+public class Pokebola implements Item {
 
     protected int getTaxaModificada(Pokemon pokemon) {
         return pokemon.getTaxaDeCaptura();
@@ -28,7 +29,12 @@ public class Pokebola {
     }
 
     @Override
-    public String toString() {
+    public String getNome() {
         return "Pokebola";
+    }
+
+    @Override
+    public String getDescricao() {
+        return "Pokebola mais simples do jogo.";
     }
 }

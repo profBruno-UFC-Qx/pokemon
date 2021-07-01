@@ -10,9 +10,12 @@ public class GreatPokebola extends PokebolaAfetaTaxa {
     }
 
     @Override
-    public String toString() {
+    public String getNome() {
         return "GreatPokebola";
     }
 
-
+    @Override
+    public String getDescricao() {
+        return "Possui uma taxa de captura maior que de uma Pokebola.";
+    }
 }

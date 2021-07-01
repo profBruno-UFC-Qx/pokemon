@@ -19,7 +19,13 @@ public class HeavyPokebola extends PokebolaAfetaTaxa {
     }
 
     @Override
-    public String toString() {
+    public String getNome() {
         return "HeavyPokebola";
     }
+
+    @Override
+    public String getDescricao() {
+        return "Aumenta a chance de capturar pokemons pesados.";
+    }
+
 }
