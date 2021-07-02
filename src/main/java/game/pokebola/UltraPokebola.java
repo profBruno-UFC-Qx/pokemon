@@ -4,6 +4,10 @@ import game.Pokemon;
 
 public class UltraPokebola extends PokebolaAfetaTaxa {
 
+    public UltraPokebola() {
+        preco = 800;
+    }
+
     @Override
     protected int getTaxaModificada(Pokemon pokemon) {
         return 2*pokemon.getTaxaDeCaptura();

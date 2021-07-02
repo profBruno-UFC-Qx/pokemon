@@ -4,6 +4,10 @@ import game.Pokemon;
 
 public class FriendPokebola extends PokebolaAfetaPokemon {
 
+    public FriendPokebola() {
+        preco = Integer.MAX_VALUE;
+    }
+
     @Override
     protected void aplicarEfeito(Pokemon pokemon) {
         pokemon.setNivelDeAmizade(200);
@@ -11,11 +15,12 @@ public class FriendPokebola extends PokebolaAfetaPokemon {
 
     @Override
     public String getNome() {
-        return "FriendBola";
+        return "FriendPokebola";
     }
 
     @Override
     public String getDescricao() {
         return "Eleva o nivel de amizade do pokemon capturado para 200";
     }
+
 }

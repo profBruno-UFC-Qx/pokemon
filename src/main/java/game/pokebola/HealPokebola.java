@@ -3,6 +3,10 @@ package game.pokebola;
 import game.Pokemon;
 
 public class HealPokebola extends PokebolaAfetaPokemon {
+    
+    public HealPokebola() {
+        preco = 300;
+    }
 
     @Override
     protected void aplicarEfeito(Pokemon pokemon) {
@@ -18,4 +22,5 @@ public class HealPokebola extends PokebolaAfetaPokemon {
     public String getDescricao() {
         return "Restaura o Pv do pokemon capturado";
     }
+
 }

@@ -4,6 +4,10 @@ import game.Pokemon;
 
 public class HeavyPokebola extends PokebolaAfetaTaxa {
 
+    public HeavyPokebola() {
+        preco = Integer.MAX_VALUE;
+    }
+
     @Override
     protected int getTaxaModificada(Pokemon pokemon) {
         float peso = pokemon.getPeso();

@@ -6,7 +6,9 @@ import game.model.Item;
 import java.util.Random;
 
 
-public class Pokebola implements Item {
+public class Pokebola implements Comparable<Pokebola>, Item {
+
+    protected int preco = 200;
 
     protected int getTaxaModificada(Pokemon pokemon) {
         return pokemon.getTaxaDeCaptura();
@@ -26,6 +28,20 @@ public class Pokebola implements Item {
         int numeroDaSorte = calcularNumeroCaptura(pokemon);
         System.out.print( "("+ numeroDaSorte + " > " + numeroPokemon + "?) ");
         return (numeroDaSorte >= numeroPokemon);
+    }
+
+    public int getPreco() {
+        return preco;
+    }
+
+    @Override
+    public int compareTo(Pokebola pokebola) {
+        int resultado = preco - pokebola.getPreco();
+        if (resultado == 0) {
+            return getNome().compareTo(pokebola.getNome());
+        } else {
+            return resultado;
+        }
     }
 
     @Override

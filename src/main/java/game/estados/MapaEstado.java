@@ -31,7 +31,6 @@ public class MapaEstado implements Estado {
         mensageria.push(MENU);
         renderizar();
         terminou = false;
-        proximoEstado = EstadoEnum.MAPA;
     }
 
     @Override
