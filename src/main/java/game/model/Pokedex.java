@@ -3,58 +3,75 @@ package game.model;
 import game.BancoDePokemon;
 import game.Pokemon;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class Pokedex implements PokedexEventos{
+public class Pokedex implements PokedexEventos {
 
     private List<Pokemon> meusPokemons;
-    private Map<String, Integer> pokemonCapturados;
-    private Map<String, Boolean> pokemonsVistos;
+    private Set<String> vistos;
+    private Map<String, Integer> capturados;
 
     public Pokedex() {
         meusPokemons = new ArrayList<>();
-        pokemonCapturados = new HashMap<>();
-        pokemonsVistos = new HashMap<>();
+        vistos = new HashSet<>();
+        capturados = new HashMap<>();
     }
 
     @Override
     public void aoCapturar(Pokemon pokemon) {
         meusPokemons.add(pokemon);
-        Integer nExemplaresCapturados = 0;
-        if(pokemonCapturados.containsKey(pokemon.getNome())){
-            nExemplaresCapturados = pokemonCapturados.get(pokemon.getNome());
+        int qtdCapturados = 0;
+        if(capturados.containsKey(pokemon.getNome())) {
+            qtdCapturados = capturados.get(pokemon.getNome());
         }
-        pokemonCapturados.put(pokemon.getNome(), nExemplaresCapturados + 1);
+        capturados.put(pokemon.getNome(), qtdCapturados + 1);
+    }
+
+    private int getCapturadosPorEspecie(String especie) {
+        int resultado = 0;
+        if(capturados.containsKey(especie)) {
+            resultado = capturados.get(especie);
+        }
+        return resultado;
     }
 
     @Override
     public void aoVerPokemon(Pokemon pokemon) {
-        if(!pokemonsVistos.containsKey(pokemon.getNome())) {
-            pokemonsVistos.put(pokemon.getNome(), Boolean.TRUE);
-        }
+        vistos.add(pokemon.getNome());
     }
 
     public String getPokemons() {
-        StringBuilder builder = new StringBuilder();
-        int n = 1;
-        int vistos = 0, capturados = 0;
-        for (String pokemon : BancoDePokemon.POKEMONS) {
-            builder.append(n + " - ");
-            if(pokemonCapturados.containsKey(pokemon)) {
-                builder.append(pokemon + "*");
-                capturados++;
-                vistos++;
-            } else if (pokemonsVistos.containsKey(pokemon)) {
-                builder.append(pokemon);
-                vistos++;
+
+        StringBuilder resultado = new StringBuilder();
+
+        for(int i = 0; i < BancoDePokemon.POKEMONS.length; i++) {
+            String nomePokemon = BancoDePokemon.POKEMONS[i];
+
+
+            boolean capturado = meusPokemons.stream().anyMatch(p -> p.getNome().equals(nomePokemon));
+            boolean visto = vistos.contains(nomePokemon);
+            int nCapturados = getCapturadosPorEspecie(nomePokemon);
+
+            resultado.append(i+1).append(" -> ");
+
+            if(visto) {
+                resultado.append(nomePokemon);
+            } else {
+                resultado.append("???");
             }
-            builder.append("\n");
-            n++;
+
+            if(capturado) {
+                resultado.append(" x").append(nCapturados);
+            }
+            resultado.append("\n");
         }
-        builder.append("Voce encontrou " + vistos + " pokemons de especies diferentes\n e capturou " + capturados + " especies diferentes");
-        return  builder.toString();
+
+        resultado.append("Voce encontrou ")
+                .append(vistos.size())
+                .append(" pokemons de especies diferentes\n e capturou ")
+                .append(meusPokemons.size())
+                .append(" pokemons");
+
+        return resultado.toString();
     }
 }

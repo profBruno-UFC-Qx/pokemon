@@ -26,7 +26,7 @@ public class Pokebola implements Comparable<Pokebola>, Item {
         Random random = new Random();
         int numeroPokemon = random.nextInt(255) + 1;
         int numeroDaSorte = calcularNumeroCaptura(pokemon);
-        System.out.print( "("+ numeroDaSorte + " > " + numeroPokemon + "?) ");
+        //System.out.print( "("+ numeroDaSorte + " > " + numeroPokemon + "?) ");
         return (numeroDaSorte >= numeroPokemon);
     }
 

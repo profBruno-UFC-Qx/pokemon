@@ -70,7 +70,6 @@ public class MapaEstado implements Estado {
     @Override
     public void aoSair() {
         terminou = true;
-        renderizar();
     }
 
     @Override
