@@ -16,7 +16,7 @@ public class Pokemon {
     private int nivelDeAmizade;
     private int taxaDeCaptura = 100;
 
-    enum Sexo {
+    public enum Sexo {
         MASCULINO("M"), FEMININO("F");
 
         private String abreviacao;
@@ -58,11 +58,13 @@ public class Pokemon {
         return pvAtual;
     }
 
+    public int getAltura() { return altura; }
+
     public int getVelocidade() {
         return velocidade;
     }
 
-    public float getPeso() {
+    public int getPeso() {
         return peso;
     }
 
@@ -74,9 +76,29 @@ public class Pokemon {
         return nivelDeAmizade;
     }
 
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public int getNivel() { return nivel; }
+
     public void setNivelDeAmizade(int nivelDeAmizade) {
         this.nivelDeAmizade = nivelDeAmizade;
     }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setPvMax(int pvMax) {
+        this.pvMax = pvMax;
+    }
+
+    public void setTaxaDeCaptura(int taxaDeCaptura) {
+        this.taxaDeCaptura = taxaDeCaptura;
+    }
+
+    public void setNivel(int nivel) { this.nivel = nivel; }
 
     @Override
     public String toString() {
