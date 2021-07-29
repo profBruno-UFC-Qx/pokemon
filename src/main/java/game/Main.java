@@ -3,6 +3,7 @@ package game;
 import game.estados.*;
 import game.model.Treinador;
 import game.pokebola.*;
+import game.util.Utils;
 
 import java.util.*;
 
@@ -15,7 +16,7 @@ public class Main {
         System.out.println("Bem vindo ao jogo do pokemon");
 
         List<Pokebola> pokebolas = Main.criarInventario();
-        Treinador treinador = new Treinador();
+        Treinador treinador = new Treinador(Utils.carregarPokedex());
 
         MaquinaDeEstados modo = new MaquinaDeEstados();
         modo.adicionar(EstadoEnum.MAPA, new MapaEstado(treinador, mensageria));
@@ -45,6 +46,8 @@ public class Main {
             }
         } while(!"sair".equalsIgnoreCase(opcao));
         System.out.println("Tchau. Ate a proxima.");
+
+        Utils.salvarPokedex(treinador.getPokedex());
     }
 
     private static List<Pokebola> criarInventario() {

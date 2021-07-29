@@ -17,6 +17,15 @@ public class Pokedex implements PokedexEventos {
         capturados = new HashMap<>();
     }
 
+    public Pokedex(Collection<Pokemon> meusPokemons, Collection<String> vistos) {
+        this.meusPokemons = new ArrayList<>();
+        this.vistos = new HashSet<>(vistos);
+        capturados = new HashMap<>();
+        for (Pokemon pokemon: meusPokemons) {
+            aoCapturar(pokemon);
+        }
+    }
+
     @Override
     public void aoCapturar(Pokemon pokemon) {
         meusPokemons.add(pokemon);
@@ -38,6 +47,14 @@ public class Pokedex implements PokedexEventos {
     @Override
     public void aoVerPokemon(Pokemon pokemon) {
         vistos.add(pokemon.getNome());
+    }
+
+    public List<Pokemon> getMeusPokemons() {
+        return meusPokemons;
+    }
+
+    public Set<String> getPokemonVistos() {
+        return vistos;
     }
 
     public String getPokemons() {
