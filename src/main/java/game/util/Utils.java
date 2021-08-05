@@ -10,8 +10,9 @@ import java.util.stream.Stream;
 
 public class Utils {
 
-    private  static final String PLAYER_POKEMONS_CSV = "meus_pokemons.csv";
-    private  static final String PLAYER_POKEMONS_VISTOS_CSV = "pokemons_vistos.csv";
+    private static final String PLAYER_POKEMONS_CSV = "meus_pokemons.csv";
+    private static final String PLAYER_POKEMONS_VISTOS_CSV = "pokemons_vistos.csv";
+    private static final String CABECALHO_VISTOS = "NOME";
 
     public static Pokedex carregarPokedex() {
         List<Pokemon> pokemons = new ArrayList<>();
@@ -50,7 +51,7 @@ public class Utils {
                 pokedex.getMeusPokemons().stream().map(parser::pokemonToCsv));
 
         salvarNoArquivo(PLAYER_POKEMONS_VISTOS_CSV,
-                "NOME",
+                CABECALHO_VISTOS,
                 pokedex.getPokemonVistos().stream());
     }
 
